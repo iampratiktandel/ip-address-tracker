@@ -5,6 +5,8 @@ L?.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
+const marker = L.marker([34.06254959106445, -118.08197784423828]).addTo(map);
+
 const getSearchData = (searchTerm) => {
   fetch(
     `http://api.ipstack.com/${searchTerm}?access_key={API_KEY}`
@@ -21,6 +23,7 @@ const getSearchData = (searchTerm) => {
       const isp = data?.connection?.isp || "N/A";
 
       map.setView([data?.latitude, data?.longitude], 13);
+      marker.setLatLng([data?.latitude, data?.longitude]).update();
       document.querySelector("#ip").textContent = ip;
       document.querySelector("#location").textContent = location;
       document.querySelector("#timezone").textContent = timezone;
