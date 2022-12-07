@@ -16,7 +16,7 @@
     "url": "https://github.com/pratik-tandel/ip-address-tracker/issues"
   },
   "homepage": "https://github.com/pratik-tandel/ip-address-tracker#readme",
-  "dependencies": {
+  "devDependencies": {
     "dotenv": "^16.0.3"
   }
 }

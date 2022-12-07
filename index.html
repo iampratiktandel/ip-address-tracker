@@ -25,27 +25,27 @@
         <div class="header d-flex flex-col align-items-center">
           <h1 class="header__title"> IP Address Tracker</h1>
           <div class="header__search-wrapper d-flex">
-            <input type="text" name="" id="" class="header__search" placeholder="Search for any IP address or domain">
-            <button class="header__search-btn">
+            <input type="text" name="" id="search" class="header__search" placeholder="Search for any IP address or domain">
+            <button class="header__search-btn" onclick="onSearch()">
               <img src="./images/icon-arrow.svg" alt="arrow icon">
             </button>
           </div>
           <div class="header__results d-flex">
             <div class="header__result">
               <h2 class="header__result-title">IP Address</h2>
-              <p class="header__result-data">192.212.174.101</p>
+              <p class="header__result-data" id="ip">192.212.174.101</p>
             </div>
             <div class="header__result">
               <h2 class="header__result-title">Location</h2>
-              <p class="header__result-data">Brooklyn, NY 10001</p>
+              <p class="header__result-data" id="location">Rosemead, CA 91770</p>
             </div>
             <div class="header__result">
               <h2 class="header__result-title">Timezone</h2>
-              <p class="header__result-data">UTC - 05: 00</p>
+              <p class="header__result-data" id="timezone">UTC - N/A</p>
             </div>
             <div class="header__result">
               <h2 class="header__result-title">ISP</h2>
-              <p class="header__result-data">SpaceX Starlink</p>
+              <p class="header__result-data" id="isp">N/A</p>
             </div>
           </div>
         </div>
