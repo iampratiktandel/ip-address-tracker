@@ -67,8 +67,18 @@ body {
   background-repeat: no-repeat;
 }
 
+.content-wrapper {
+  flex-grow: 1;
+  /* overflow: hidden; */
+}
+
 .container {
   max-width: 1240px;
   padding: 0 30px;
 }
 /* /Wrappers */
+
+#map {
+  height: 100%;
+  flex-grow: 1;
+}
