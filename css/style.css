@@ -1,6 +1,8 @@
 :root {
   --color-gray: hsl(0, 0%, 59%);
   --color-dark-gray: hsl(0, 0%, 17%);
+  --color-white: #fafdff;
+  --color-black: #000000;
 }
 
 * {
@@ -20,6 +22,7 @@ body {
   font-weight: 400;
   font-size: 18px;
   color: var(--color-dark-gray);
+  position: relative;
 }
 
 /* Custom Classes */
@@ -65,20 +68,103 @@ body {
   background-image: url("../images/pattern-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
+  padding-bottom: 115px;
 }
 
 .content-wrapper {
   flex-grow: 1;
-  /* overflow: hidden; */
+  z-index: 1;
 }
 
 .container {
   max-width: 1240px;
+  margin: 0 auto;
   padding: 0 30px;
 }
 /* /Wrappers */
 
+/* Header */
+.header__title {
+  color: var(--color-white);
+  font-weight: 500;
+  padding: 25px 0;
+}
+
+/* Header Search */
+.header__search {
+  width: 550px;
+  height: 55px;
+  background-color: var(--color-white);
+  color: var(--color-dark-gray);
+  font-weight: 700;
+  border: none;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding-left: 20px;
+}
+
+.header__search:hover {
+  cursor: pointer;
+}
+
+.header__search::placeholder {
+  color: var(--color-gray);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.header__search-btn {
+  padding: 10px 25px;
+  background-color: var(--color-black);
+  border: none;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.header__search-btn:hover {
+  background-color: var(--color-dark-gray);
+  cursor: pointer;
+}
+/* /Header Search */
+
+/* Header Result */
+.header__results {
+  /* transform: translateY(50px); */
+  position: absolute;
+  background-color: var(--color-white);
+  padding: 40px 0;
+  top: 200px;
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.header__result {
+  padding: 0 30px;
+}
+
+.header__result:not(:first-child) {
+  border-left: 1px solid var(--color-gray);
+}
+
+.header__result-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  letter-spacing: 2px;
+  padding-bottom: 10px;
+}
+
+.header__result-data {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-dark-gray);
+}
+/* /Header Result */
+/* /Header */
+
+/* Map */
 #map {
   height: 100%;
   flex-grow: 1;
 }
+/* /Map */
