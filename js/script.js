@@ -14,24 +14,27 @@ const marker = L.marker([34.06254959106445, -118.08197784423828]).addTo(map);
  * @param searchTerm input value
  */
 const getSearchData = (searchTerm) => {
-  fetch(`http://api.ipstack.com/${searchTerm}?access_key={API_KEY}`)
+  // fetch(`http://api.ipstack.com/${searchTerm}?access_key={API_KEY}`)
+  fetch(
+    ` https://geo.ipify.org/api/v2/country,city?apiKey={API_KEY}=${searchTerm}`
+  )
     .then((response) => response.json())
     .then((data) => {
       /** set result values */
-      const city = data?.city || "N/A";
-      const region_code = data?.region_code || "N/A";
-      const zip = data?.zip || "N/A";
-      const offset = data?.location?.time_zone?.gmt_offset || "N/A";
+      const city = data?.location?.city || "N/A";
+      const region = data?.location?.region || "N/A";
+      const postalCode = data?.location?.postalCode || "N/A";
+      const offset = data?.location?.timezone || "N/A";
 
       const ip = data?.ip || "N/A";
-      const location = `${city}, ${region_code} ${zip}`;
+      const location = `${city}, ${region} ${postalCode}`;
       const timezone = `UTC - ${offset}`;
-      const isp = data?.connection?.isp || "N/A";
+      const isp = data?.isp || "N/A";
 
       /** update map */
-      map.setView([data?.latitude, data?.longitude], 13);
+      map.setView([data?.location?.lat, data?.location?.lng], 13);
       /** update marker */
-      marker.setLatLng([data?.latitude, data?.longitude]).update();
+      marker.setLatLng([data?.location?.lat, data?.location?.lng]).update();
       /** set result content in view */
       document.querySelector("#ip").textContent = ip;
       document.querySelector("#location").textContent = location;
