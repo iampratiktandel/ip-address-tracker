@@ -16,7 +16,7 @@ const marker = L.marker([34.06254959106445, -118.08197784423828]).addTo(map);
 const getSearchData = (searchTerm) => {
   // fetch(`http://api.ipstack.com/${searchTerm}?access_key={API_KEY}`)
   fetch(
-    ` https://geo.ipify.org/api/v2/country,city?apiKey={API_KEY}=${searchTerm}`
+    ` https://geo.ipify.org/api/v2/country,city?apiKey={API_KEY}&ipAddress=${searchTerm}`
   )
     .then((response) => response.json())
     .then((data) => {
